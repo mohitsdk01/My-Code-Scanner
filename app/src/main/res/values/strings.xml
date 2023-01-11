@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">My Code Scanner</string>
+    <string name="scanning_result">Let\'s Start Scan</string>
+    <string name="bottom_note_main_activity">Note: Click on scanner camera for new scan when once scan done.</string>
 </resources>
