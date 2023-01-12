@@ -14,10 +14,12 @@ import android.content.pm.PackageManager;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.ContactsContract;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.webkit.URLUtil;
@@ -30,7 +32,7 @@ import android.widget.Toast;
 import com.budiyev.android.codescanner.CodeScanner;
 import com.budiyev.android.codescanner.CodeScannerView;
 import com.budiyev.android.codescanner.DecodeCallback;
-import com.budiyev.android.codescanner.ScanMode;
+import com.example.mycodescanner.Ads.adMob;
 import com.google.zxing.Result;
 import com.google.zxing.client.result.EmailAddressParsedResult;
 
@@ -43,11 +45,19 @@ public class MainActivity extends AppCompatActivity {
     ImageView openExteranalLink;
     TextView open_external_link_text;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        final Toast toast = Toast.makeText(getApplicationContext(), "Note: Click on scanner camera for new scan when once scan done.", Toast.LENGTH_LONG);
+        toast.show();
+        Handler handler = new Handler();
+        handler.postDelayed(toast::cancel, 10000); // Toast Handler
+
+
+        // ActionBar settings
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.setTitle(Html.fromHtml("<font color='#000000'>QR Scanner</font>"));
@@ -69,6 +79,9 @@ public class MainActivity extends AppCompatActivity {
         String[] PERMISSIONS = {
                 Manifest.permission.CAMERA
         };
+
+        // Calling advertisement banner...
+        adMob.setBannerAd(findViewById(R.id.banner),this);
 
         if (!hasPermissions(this, PERMISSIONS)) {
             ActivityCompat.requestPermissions(this, PERMISSIONS, PERMISSION_ALL);
@@ -135,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             });
 
+                            // Share button implementation
                             shareBtn.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
@@ -162,6 +176,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+
+
 
 
     // All external functions (Non Main)

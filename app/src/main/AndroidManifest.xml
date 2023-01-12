@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -19,6 +20,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyCodeScanner"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-2056357940041214~9268680468"/>
+
         <activity
             android:name=".SplashActivity"
             android:exported="true">

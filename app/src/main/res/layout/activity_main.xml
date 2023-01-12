@@ -31,13 +31,13 @@
         android:id="@+id/icon_buttons_relative_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/note_text"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
         android:visibility="gone"
+        android:layout_above="@+id/banner"
         android:background="@drawable/grey_corner_rounded_background">
 
         <ImageView
@@ -95,13 +95,29 @@
 
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/note_text"
+<!--    <TextView-->
+<!--        android:id="@+id/note_text"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/bottom_note_main_activity"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:gravity="center"-->
+<!--        android:textColor="#FF0000"/>-->
+
+<!--    <com.google.android.gms.ads.AdView-->
+<!--        android:id="@+id/banner"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:orientation="vertical"-->
+<!--        app:adSize="BANNER"-->
+<!--        app:adUnitId="ca-app-pub-2056357940041214/2254919247"/>-->
+
+    <LinearLayout
+        android:id="@+id/banner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/bottom_note_main_activity"
+        android:orientation="vertical"
         android:layout_alignParentBottom="true"
-        android:gravity="center"
-        android:textColor="#FF0000"/>
-
+        />
 </RelativeLayout>
