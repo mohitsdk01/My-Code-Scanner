@@ -33,6 +33,7 @@ import com.budiyev.android.codescanner.CodeScanner;
 import com.budiyev.android.codescanner.CodeScannerView;
 import com.budiyev.android.codescanner.DecodeCallback;
 import com.example.mycodescanner.Ads.adMob;
+import com.example.mycodescanner.Ads.onDismiss;
 import com.google.zxing.Result;
 import com.google.zxing.client.result.EmailAddressParsedResult;
 
@@ -55,6 +56,16 @@ public class MainActivity extends AppCompatActivity {
         toast.show();
         Handler handler = new Handler();
         handler.postDelayed(toast::cancel, 10000); // Toast Handler
+
+        // showing the interstitial Ad
+        new adMob(new onDismiss() {
+            @Override
+            public void onDissmiss() {
+
+            }
+        }).showIntCall(MainActivity.this, true);
+
+        //adMob.showIntCall(MainActivity.this, true);
 
 
         // ActionBar settings

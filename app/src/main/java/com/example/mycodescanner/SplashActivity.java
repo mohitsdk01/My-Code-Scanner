@@ -13,6 +13,8 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.window.SplashScreen;
 
+import com.example.mycodescanner.Ads.adMob;
+
 public class SplashActivity extends AppCompatActivity {
 
     private static final int SPLASH_SCREEN_TIME_OUT=2500;
@@ -21,6 +23,11 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        // Loading the Interstitial ad here first
+        adMob.loadInt(SplashActivity.this);
+
+        // Hide action bar
         getSupportActionBar().hide();
 
         splashImage = findViewById(R.id.spashImageView);
